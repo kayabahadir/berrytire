@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Berry Coffee – Menü</title>
+<style>html,body{margin:0;height:100%;background:#000;overflow:hidden;cursor:none}
+video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}</style></head>
+<body><video id="v" src="video.mp4" autoplay muted loop playsinline preload="auto"></video>
+<script>
+var v=document.getElementById("v");
+function p(){var r=v.play();if(r&&r.catch)r.catch(function(){})}
+v.addEventListener("pause",function(){setTimeout(p,500)});
+v.addEventListener("stalled",function(){setTimeout(function(){v.load();p()},3000)});
+v.addEventListener("error",function(){setTimeout(function(){location.reload()},10000)});
+addEventListener("click",p);
+addEventListener("keydown",function(e){if(e.key==="f")document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()});
+p();
+// Saatte bir sayfayı yenile (yeni video yüklendiyse otomatik gelir)
+setTimeout(function(){location.reload()},3600000);
+</script></body></html>
